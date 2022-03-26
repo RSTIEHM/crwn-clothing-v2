@@ -1,6 +1,7 @@
 
 
 import { initializeApp } from 'firebase/app';
+// ALL THINGS AUTH
 import {
   getAuth,
   signInWithRedirect,
@@ -8,6 +9,8 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
+
+// ALL THINGS DB
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -27,6 +30,7 @@ googleProvider.setCustomParameters({
 });
 
 export const auth = getAuth();
+
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
 export const signInWithGoogleRedirect = () =>
