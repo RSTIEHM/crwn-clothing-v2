@@ -1,7 +1,8 @@
 
-
+// IMPORT FIREBASE=============
 import { initializeApp } from 'firebase/app';
-// ALL THINGS AUTH
+
+// ALL THINGS AUTH=============
 import {
   getAuth,
   signInWithRedirect,
@@ -10,7 +11,7 @@ import {
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
 
-// ALL THINGS DB
+// ALL THINGS DB ===============
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -21,6 +22,7 @@ const firebaseConfig = {
   messagingSenderId: "265217839968",
   appId: "1:265217839968:web:3027df5c7b5370dd960405"
 };
+
 const firebaseApp = initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
@@ -29,10 +31,14 @@ googleProvider.setCustomParameters({
   prompt: 'select_account',
 });
 
+
+
+// EXPORTS ============================
 export const auth = getAuth();
 
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
+  
 export const signInWithGoogleRedirect = () =>
   signInWithRedirect(auth, googleProvider);
 
